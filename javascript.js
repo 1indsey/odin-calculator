@@ -1,5 +1,3 @@
-// add function 
-
 const add = function(a, b) {
     return a + b;
 };
@@ -23,3 +21,10 @@ const divide = function(a, b) {
 };
 
 // divide(10,2);
+
+const operate = function(string, a, b) {
+    if (string === '+') {
+        return(add(a,b));
+    }};
+
+operate('+', 2, 5);
