@@ -22,9 +22,18 @@ const divide = function(a, b) {
 
 // divide(10,2);
 
-const operate = function(string, a, b) {
-    if (string === '+') {
+const operate = function(operator, a, b) {
+    if (operator === '+') {
         return(add(a,b));
-    }};
+    } else if (operator === '-' ) {
+        return(subtract(a,b));
+    } else if (operator === '*') {
+        return(multiply(a,b));
+    } else if (operator === '/') {
+        return(divide(a,b));
+    } else {
+        return 'ERROR - NOT AN ACCECTABLE OPERATOR';
+    };
+};
 
-operate('+', 2, 5);
+// operate('.', 10, 2);
