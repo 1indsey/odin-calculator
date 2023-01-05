@@ -17,3 +17,9 @@ const multiply = function(a, b) {
 };
 
 // multiply(4,5);
+
+const divide = function(a, b) {
+    return a / b;
+};
+
+// divide(10,2);
