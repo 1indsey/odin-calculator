@@ -22,18 +22,32 @@ const divide = function(a, b) {
 
 // divide(10,2);
 
+let result; 
+
 const operate = function(operator, a, b) {
     if (operator === '+') {
-        return(add(a,b));
+        result = (add(a,b));
     } else if (operator === '-' ) {
-        return(subtract(a,b));
+        result = (subtract(a,b));
     } else if (operator === '*') {
-        return(multiply(a,b));
+        result = (multiply(a,b));
     } else if (operator === '/') {
-        return(divide(a,b));
+        result = (divide(a,b));
     } else {
-        return 'ERROR - NOT AN ACCECTABLE OPERATOR';
+        result = 'ERROR - NOT AN ACCECTABLE OPERATOR';
     };
 };
 
-// operate('.', 10, 2);
+operate('.', 10, 2);
+
+//the below code populates the final result on the screen
+
+const display = document.querySelector('.display');
+const displayValue = document.createElement('h2');
+displayValue.textContent = `EQUALS ${result}`;
+display.appendChild(displayValue);
+
+
+//when a button is pressed, display that input to user (press 2, display 2)
+//when another button is pressed, add that input to the current input display (press 4, display '24', press +, 'display 24 +' and so on)
+//make clear button clear values and display
