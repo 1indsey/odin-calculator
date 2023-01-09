@@ -38,22 +38,18 @@ const operate = function(operator, a, b) {
     };
 };
 
-operate('.', 10, 2);
+operate('.', 10, 2); //FUNCTION TEST
 
-
-//when a button is pressed, display that input to user (press 2, display 2)
-//when another button is pressed, add that input to the current input display (press 4, display '24', press +, 'display 24 +' and so on)
-//make clear button clear values and display
 
 //the below code adds event listeners to each button & calls the "displayCurrentValue" function on click
 
-let current;
+let current = "";
 
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        current = button.value;
+        current += button.value;
         displayCurrentValue();
 })});
 
@@ -74,5 +70,19 @@ const displayValue = document.createElement('h2');
 displayValue.textContent = `EQUALS ${result}`;
 display.appendChild(displayValue);
 
+//the below code makes the Clear button resets the 'current' value & empties the runningDisplay div 
 
+const clearButton = document.querySelector('#clear')
+clearButton.addEventListener('click', () => {
+    clear();
+});
+
+const clear = function() {
+    current = "";
+    runningDisplay.innerHTML = "";
+};
+
+//when a button is pressed, display that input to user (press 2, display 2)
+//when another button is pressed, add that input to the current input display (press 4, display '24', press +, 'display 24 +' and so on)
+//make clear button clear values and display
 
