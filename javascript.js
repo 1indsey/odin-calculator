@@ -82,7 +82,39 @@ const clear = function() {
     runningDisplay.innerHTML = "";
 };
 
-//when a button is pressed, display that input to user (press 2, display 2)
-//when another button is pressed, add that input to the current input display (press 4, display '24', press +, 'display 24 +' and so on)
-//make clear button clear values and display
 
+
+//store first number that user enters in a variable
+//if multiple numbers are pressed in a row, concat them and turn them into a #
+//store the operator in a variable
+//store the number(s) after the operator is selected in another variable - possibly need some sort of event listener that captures #s entered before & after operator?
+//perform the correct operation when equals button is pressed
+//display results
+
+//the below code stores the value of the buttons clicked, converts them to a number, and stores it in another variable
+
+let enteredDigit = "";
+let convertedDigit = 0;
+
+const digitButtons = document.querySelectorAll('#digits');
+
+digitButtons.forEach((digit) => {
+    digit.addEventListener('click', () => {
+        enteredDigit += digit.value;
+        convertedDigit = Number(enteredDigit);
+        console.log(convertedDigit);
+        console.log(typeof convertedDigit);
+})});
+
+//the below code stores which operator is selected in variable selectedOperator
+
+let selectedOperator;
+
+const operatorButtons = document.querySelectorAll('.operator');
+
+operatorButtons.forEach((operator) => {
+    operator.addEventListener('click', () => {
+        selectedOperator = operator.value;
+        console.log(selectedOperator);
+    });
+});
