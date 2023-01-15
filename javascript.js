@@ -24,6 +24,18 @@ const divide = function(a, b) {
 
 let result; 
 
+//the below code populates the final result on the screen
+
+const display = document.querySelector('.display');
+let displayResult = function() {
+    display.innerHTML = "";
+    const displayValue = document.createElement('h2');
+    displayValue.textContent = `EQUALS ${result}`;
+    display.appendChild(displayValue);
+};
+
+//below code is the main operate function - attached to equals button
+
 const operate = function(operator, a, b) {
     if (operator === '+') {
         result = (add(a,b));
@@ -34,12 +46,20 @@ const operate = function(operator, a, b) {
     } else if (operator === '/') {
         result = (divide(a,b));
     } else {
-        result = 'ERROR - NOT AN ACCECTABLE OPERATOR';
+        result = 'ERROR - NOT AN ACCEPTABLE OPERATOR';
     };
+    displayResult();
+    console.log(result);
 };
 
-operate('.', 10, 2); //FUNCTION TEST
+// operate('+', 10, 2); //FUNCTION TEST
 
+//the below code attaches the operate function to the equals button
+
+const equalsButton = document.querySelector('#equals')
+equalsButton.addEventListener('click', () => {
+    operate(selectedOperator, convertedDigit, convertedDigit2);
+});
 
 //the below code adds event listeners to each button & calls the "displayCurrentValue" function on click
 
@@ -63,13 +83,6 @@ currentValue.textContent = `${current}`;
 runningDisplay.appendChild(currentValue);
 };
 
-//the below code populates the final result on the screen
-
-const display = document.querySelector('.display');
-const displayValue = document.createElement('h2');
-displayValue.textContent = `EQUALS ${result}`;
-display.appendChild(displayValue);
-
 //the below code makes the Clear button resets the 'current' value & empties the runningDisplay div 
 
 const clearButton = document.querySelector('#clear')
@@ -82,12 +95,13 @@ const clear = function() {
     runningDisplay.innerHTML = "";
 };
 
-
+let selectedOperator;
 
 //store first number that user enters in a variable
 //if multiple numbers are pressed in a row, concat them and turn them into a #
 //store the operator in a variable
 //store the number(s) after the operator is selected in another variable - possibly need some sort of event listener that captures #s entered before & after operator?
+//idea - make an if statement; if selectedOperator = undefined vs if selectedOperator != undefined?
 //perform the correct operation when equals button is pressed
 //display results
 
@@ -95,20 +109,37 @@ const clear = function() {
 
 let enteredDigit = "";
 let convertedDigit = 0;
+let enteredDigit2 = "";
+let convertedDigit2 = 0;
 
 const digitButtons = document.querySelectorAll('#digits');
 
+// digitButtons.forEach((digit) => {
+//     digit.addEventListener('click', () => {
+//         enteredDigit += digit.value;
+//         convertedDigit = Number(enteredDigit);
+//         console.log(convertedDigit);
+//         console.log(typeof convertedDigit);
+// })});
+
 digitButtons.forEach((digit) => {
     digit.addEventListener('click', () => {
-        enteredDigit += digit.value;
-        convertedDigit = Number(enteredDigit);
-        console.log(convertedDigit);
-        console.log(typeof convertedDigit);
+        if (selectedOperator === undefined) {
+            enteredDigit += digit.value;
+            convertedDigit = Number(enteredDigit);
+            console.log(convertedDigit);
+            console.log(typeof convertedDigit);
+        } else {
+            enteredDigit2 += digit.value;
+            convertedDigit2 = Number(enteredDigit2);
+            console.log(convertedDigit2);
+            console.log(typeof convertedDigit2);
+        };
 })});
 
 //the below code stores which operator is selected in variable selectedOperator
 
-let selectedOperator;
+
 
 const operatorButtons = document.querySelectorAll('.operator');
 
@@ -116,5 +147,9 @@ operatorButtons.forEach((operator) => {
     operator.addEventListener('click', () => {
         selectedOperator = operator.value;
         console.log(selectedOperator);
+        console.log(typeof selectedOperator);
     });
 });
+
+// operate(selectedOperator, convertedDigit, convertedDigit2); 
+
