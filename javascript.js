@@ -93,6 +93,8 @@ clearButton.addEventListener('click', () => {
 const clear = function() {
     current = "";
     runningDisplay.innerHTML = "";
+    result = 0;
+    display.innerHTML = "";
 };
 
 let selectedOperator;
