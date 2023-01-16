@@ -100,7 +100,8 @@ const clear = function() {
     convertedDigit = 0;
     enteredDigit2 = "";
     convertedDigit2 = 0;
-    selectedOperator === undefined;
+    selectedOperator === "";
+    countOperatorButtonClicks = 0;
 };
 
 let selectedOperator;
@@ -142,13 +143,29 @@ digitButtons.forEach((digit) => {
 
 
 const operatorButtons = document.querySelectorAll('.operator');
+let countOperatorButtonClicks = 0;
 
 operatorButtons.forEach((operator) => {
     operator.addEventListener('click', () => {
+        countOperatorButtonClicks += 1;
         selectedOperator = operator.value;
         console.log(selectedOperator);
         console.log(typeof selectedOperator);
+        console.log(countOperatorButtonClicks);
     });
 });
 
+while (countOperatorButtonClicks >= 2) {
+    operate(selectedOperator, convertedDigit, convertedDigit2);
+    convertedDigit = result;
+    console.log(convertedDigit);
+};
+
 // operate(selectedOperator, convertedDigit, convertedDigit2); 
+
+//when any operator is clicked a second time, the first operation should be evaluated and the value stored
+//possibly count number of clicks on an operator button? DONE
+//when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset
+//the clear button would have to reset the number of operator clicks - DONE
+
+//problems: when a second operator is clicked, selectedOperator value is overridden and operate function cant execute with first selection
