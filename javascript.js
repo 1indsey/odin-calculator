@@ -137,6 +137,9 @@ digitButtons.forEach((digit) => {
             console.log(convertedDigit);
             console.log(typeof convertedDigit);
         };
+        if (convertedDigit2 > 0) {
+            operate(selectedOperator, convertedDigit, convertedDigit2);
+        };
 })});
 
 //the below code stores which operator is selected in variable selectedOperator
@@ -144,6 +147,7 @@ digitButtons.forEach((digit) => {
 
 const operatorButtons = document.querySelectorAll('.operator');
 let countOperatorButtonClicks = 0;
+// let selectedOperator2 = "";
 
 operatorButtons.forEach((operator) => {
     operator.addEventListener('click', () => {
@@ -151,15 +155,16 @@ operatorButtons.forEach((operator) => {
         selectedOperator = operator.value;
         console.log(selectedOperator);
         console.log(typeof selectedOperator);
-        console.log(countOperatorButtonClicks);
+        console.log(`OPERATOR CLICKS: ${countOperatorButtonClicks}`);
+    if (countOperatorButtonClicks > 1) {
+        convertedDigit = result;
+        enteredDigit2 = "";
+        convertedDigit2 = 0;
+    };
     });
 });
 
-while (countOperatorButtonClicks >= 2) {
-    operate(selectedOperator, convertedDigit, convertedDigit2);
-    convertedDigit = result;
-    console.log(convertedDigit);
-};
+
 
 // operate(selectedOperator, convertedDigit, convertedDigit2); 
 
@@ -168,4 +173,8 @@ while (countOperatorButtonClicks >= 2) {
 //when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset
 //the clear button would have to reset the number of operator clicks - DONE
 
-//problems: when a second operator is clicked, selectedOperator value is overridden and operate function cant execute with first selection
+//problems: when a second operator is clicked, selectedOperator value is overridden and operate function cant execute with first/previous selection
+
+//TRY: when 2nd number is clicked, operate function auto executes - DONE
+
+//when a 2nd operator is clicked, convertedDigit2 becomes convertedDigit, and convertedDigit2 is emptied/reset
