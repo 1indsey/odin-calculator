@@ -95,6 +95,12 @@ const clear = function() {
     runningDisplay.innerHTML = "";
     result = 0;
     display.innerHTML = "";
+    selectedOperator = "";
+    enteredDigit = "";
+    convertedDigit = 0;
+    enteredDigit2 = "";
+    convertedDigit2 = 0;
+    selectedOperator === undefined;
 };
 
 let selectedOperator;
@@ -116,31 +122,23 @@ let convertedDigit2 = 0;
 
 const digitButtons = document.querySelectorAll('#digits');
 
-// digitButtons.forEach((digit) => {
-//     digit.addEventListener('click', () => {
-//         enteredDigit += digit.value;
-//         convertedDigit = Number(enteredDigit);
-//         console.log(convertedDigit);
-//         console.log(typeof convertedDigit);
-// })});
 
 digitButtons.forEach((digit) => {
     digit.addEventListener('click', () => {
-        if (selectedOperator === undefined) {
-            enteredDigit += digit.value;
-            convertedDigit = Number(enteredDigit);
-            console.log(convertedDigit);
-            console.log(typeof convertedDigit);
-        } else {
+        if (selectedOperator === '+' || selectedOperator === '-' || selectedOperator === '*' || selectedOperator === '/') {
             enteredDigit2 += digit.value;
             convertedDigit2 = Number(enteredDigit2);
             console.log(convertedDigit2);
             console.log(typeof convertedDigit2);
+        } else {
+            enteredDigit += digit.value;
+            convertedDigit = Number(enteredDigit);
+            console.log(convertedDigit);
+            console.log(typeof convertedDigit);
         };
 })});
 
 //the below code stores which operator is selected in variable selectedOperator
-
 
 
 const operatorButtons = document.querySelectorAll('.operator');
@@ -154,4 +152,3 @@ operatorButtons.forEach((operator) => {
 });
 
 // operate(selectedOperator, convertedDigit, convertedDigit2); 
-
