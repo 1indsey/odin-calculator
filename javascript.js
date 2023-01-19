@@ -48,8 +48,6 @@ const operate = function(operator, a, b) {
     } else {
         result = 'ERROR - NOT AN ACCEPTABLE OPERATOR';
     };
-    displayResult();
-    console.log(result);
 };
 
 // operate('+', 10, 2); //FUNCTION TEST
@@ -59,6 +57,8 @@ const operate = function(operator, a, b) {
 const equalsButton = document.querySelector('#equals')
 equalsButton.addEventListener('click', () => {
     operate(selectedOperator, convertedDigit, convertedDigit2);
+    displayResult();
+    console.log(result);
 });
 
 //the below code adds event listeners to each button & calls the "displayCurrentValue" function on click
@@ -173,8 +173,4 @@ operatorButtons.forEach((operator) => {
 //when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset
 //the clear button would have to reset the number of operator clicks - DONE
 
-//problems: when a second operator is clicked, selectedOperator value is overridden and operate function cant execute with first/previous selection
 
-//TRY: when 2nd number is clicked, operate function auto executes - DONE
-
-//when a 2nd operator is clicked, convertedDigit2 becomes convertedDigit, and convertedDigit2 is emptied/reset
