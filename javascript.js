@@ -83,7 +83,7 @@ currentValue.textContent = `${current}`;
 runningDisplay.appendChild(currentValue);
 };
 
-//the below code makes the Clear button resets the 'current' value & empties the runningDisplay div 
+//the below code makes the Clear button reset the 'current' value & empties the runningDisplay div 
 
 const clearButton = document.querySelector('#clear')
 clearButton.addEventListener('click', () => {
@@ -140,10 +140,9 @@ digitButtons.forEach((digit) => {
 //it also counts the number of clicks on an operator button
 //if # of clicks is greater than 1, the first operation is automatically performed & resulting value displayed
 
-
 const operatorButtons = document.querySelectorAll('.operator');
 let countOperatorButtonClicks = 0;
-// let selectedOperator2 = "";
+
 
 operatorButtons.forEach((operator) => {
     operator.addEventListener('click', () => {
@@ -160,13 +159,3 @@ operatorButtons.forEach((operator) => {
     };
     });
 });
-
-
-
-// operate(selectedOperator, convertedDigit, convertedDigit2); 
-
-//when any operator is clicked a second time, the first operation should be evaluated and the value stored DONE
-//AND DISPLAYED DONE
-//possibly count number of clicks on an operator button? DONE
-//when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset DONE
-//the clear button would have to reset the number of operator clicks - DONE
