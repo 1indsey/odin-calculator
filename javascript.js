@@ -104,17 +104,11 @@ const clear = function() {
     countOperatorButtonClicks = 0;
 };
 
-let selectedOperator;
-
-//store first number that user enters in a variable
-//if multiple numbers are pressed in a row, concat them and turn them into a #
-//store the operator in a variable
-//store the number(s) after the operator is selected in another variable - possibly need some sort of event listener that captures #s entered before & after operator?
-//idea - make an if statement; if selectedOperator = undefined vs if selectedOperator != undefined?
-//perform the correct operation when equals button is pressed
-//display results
 
 //the below code stores the value of the buttons clicked, converts them to a number, and stores it in another variable
+//if a number is pressed after an operation is selected, the operate function is executed
+
+let selectedOperator;
 
 let enteredDigit = "";
 let convertedDigit = 0;
@@ -143,6 +137,8 @@ digitButtons.forEach((digit) => {
 })});
 
 //the below code stores which operator is selected in variable selectedOperator
+//it also counts the number of clicks on an operator button
+//if # of clicks is greater than 1, the first operation is automatically performed & resulting value displayed
 
 
 const operatorButtons = document.querySelectorAll('.operator');
@@ -157,6 +153,7 @@ operatorButtons.forEach((operator) => {
         console.log(typeof selectedOperator);
         console.log(`OPERATOR CLICKS: ${countOperatorButtonClicks}`);
     if (countOperatorButtonClicks > 1) {
+        displayResult();
         convertedDigit = result;
         enteredDigit2 = "";
         convertedDigit2 = 0;
@@ -168,9 +165,8 @@ operatorButtons.forEach((operator) => {
 
 // operate(selectedOperator, convertedDigit, convertedDigit2); 
 
-//when any operator is clicked a second time, the first operation should be evaluated and the value stored
+//when any operator is clicked a second time, the first operation should be evaluated and the value stored DONE
+//AND DISPLAYED DONE
 //possibly count number of clicks on an operator button? DONE
-//when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset
+//when # of clicks is equal or greater than 2, the operate function is excuted, the resulting value is stored in 'convertedDigit', and the 'convertedDigit2' variable is reset DONE
 //the clear button would have to reset the number of operator clicks - DONE
-
-
