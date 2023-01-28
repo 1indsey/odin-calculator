@@ -22,7 +22,8 @@ const divide = function(a, b) {
 
 // divide(10,2);
 
-let result; 
+let result;
+let roundedResult;
 
 //the below code populates the final result on the screen
 
@@ -30,7 +31,7 @@ const display = document.querySelector('.display');
 let displayResult = function() {
     display.innerHTML = "";
     const displayValue = document.createElement('h2');
-    displayValue.textContent = `EQUALS ${result}`;
+    displayValue.textContent = `EQUALS ${roundedResult}`;
     display.appendChild(displayValue);
 };
 
@@ -48,7 +49,11 @@ const operate = function(operator, a, b) {
     } else {
         result = 'ERROR - NOT AN ACCEPTABLE OPERATOR';
     };
+    //the below code rounds the result to the nearest 10 decimal places
+    roundedResult = Math.round(result * 10000000000) / 10000000000;
+    console.log(roundedResult);
 };
+
 
 // operate('+', 10, 2); //FUNCTION TEST
 
