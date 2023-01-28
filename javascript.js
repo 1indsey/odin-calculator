@@ -31,7 +31,7 @@ const display = document.querySelector('.display');
 let displayResult = function() {
     display.innerHTML = "";
     const displayValue = document.createElement('h2');
-    displayValue.textContent = `EQUALS ${roundedResult}`;
+    displayValue.textContent = `EQUALS ${result}`;
     display.appendChild(displayValue);
 };
 
@@ -39,19 +39,18 @@ let displayResult = function() {
 
 const operate = function(operator, a, b) {
     if (operator === '+') {
-        result = (add(a,b));
+        result = Math.round((add(a,b)) * 10000000000) / 10000000000;
     } else if (operator === '-' ) {
-        result = (subtract(a,b));
+        result = Math.round((subtract(a,b)) * 10000000000) / 10000000000;;
     } else if (operator === '*') {
-        result = (multiply(a,b));
+        result = Math.round((multiply(a,b)) * 10000000000) / 10000000000;;
+    } else if (operator === '/' && b === 0) {
+        result = 'Dividing by 0 does not make any sense!';
     } else if (operator === '/') {
-        result = (divide(a,b));
+        result = Math.round((divide(a,b)) * 10000000000) / 10000000000;;
     } else {
         result = 'ERROR - NOT AN ACCEPTABLE OPERATOR';
     };
-    //the below code rounds the result to the nearest 10 decimal places
-    roundedResult = Math.round(result * 10000000000) / 10000000000;
-    console.log(roundedResult);
 };
 
 
