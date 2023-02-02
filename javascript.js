@@ -120,6 +120,7 @@ let enteredDigit2 = "";
 let convertedDigit2 = 0;
 
 const digitButtons = document.querySelectorAll('#digits');
+const decimalButton = document.querySelector('.decimal');
 
 
 digitButtons.forEach((digit) => {
@@ -138,6 +139,10 @@ digitButtons.forEach((digit) => {
         if (convertedDigit2 > 0) {
             operate(selectedOperator, convertedDigit, convertedDigit2);
         };
+        if (enteredDigit.indexOf(".") == 1) {
+            console.log("DECIMAL CHECK - WORKS!");
+            // decimalButton.disabled = true;
+        };
 })});
 
 //the below code stores which operator is selected in variable selectedOperator
@@ -155,6 +160,7 @@ operatorButtons.forEach((operator) => {
         console.log(selectedOperator);
         console.log(typeof selectedOperator);
         console.log(`OPERATOR CLICKS: ${countOperatorButtonClicks}`);
+        // decimalButton.disabled = false;
     if (countOperatorButtonClicks > 1) {
         displayResult();
         convertedDigit = result;
@@ -163,3 +169,11 @@ operatorButtons.forEach((operator) => {
     };
     });
 });
+
+
+//write some code that disables the decimal button when there is already a decimal in the current number
+// while current number contains a decimal point, disable decimal button
+
+
+
+
