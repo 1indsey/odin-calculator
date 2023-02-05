@@ -1,0 +1,110 @@
+body {
+    font-family: "Karla", sans-serif;
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+h1 {
+    align-self: center;
+}
+
+.display {
+    background-color: rgb(217, 176, 255);
+}
+
+#main {
+    background-color: lavender;
+    margin: 5% 10px;
+    padding: 30px 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#displays {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    min-width: 100%;
+    min-height: 140px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: aqua;
+}
+
+#buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-style: solid;
+    border-width: 3px;
+    border-color: yellow;
+}
+
+.digits {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    width: 8em;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 3px;
+    border-color: green; 
+}
+
+.back-clear {
+    display: flex;
+    border-style: solid;
+    border-width: 3px;
+    border-color: blue; 
+}
+
+.nums {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgb(255, 0, 191);
+}
+
+.nums-row, .zero-one {
+    display: flex;
+    justify-content:space-between;
+}
+
+.nums-row button, .zero-one button {
+    width: 100%;
+}
+
+.zero-one {
+    display: flex;
+    border-style: solid;
+    border-width: 3px;
+    border-color: blue;
+}
+
+button {
+ font-size: 60px;
+ font-family: "Karla", sans-serif;
+}
+
+.back-clear button {
+    font-size: 32px;
+    padding: 0.5em 2em;
+}
+/* .decimal {
+    vertical-align: top;
+} */

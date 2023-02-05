@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang=“en”>
+
+    <head>
+
+        <meta charset=“utf-8”>
+
+        <link rel="stylesheet" href="style.css">
+
+        <title>TOP Styled Javascript Calculator</title>
+
+    </head>
+
+    <body>
+
+        <h1>Javascript Calculator - The Odin Project</h1>
+        <div id="main">
+            <div id="displays">
+                <div class="running-display"></div>
+                <div class="display"></div>
+            </div>
+            <div id="buttons">
+                <div class="digits">
+                    <div class="back-clear">
+                        <button id="back">BACK</button>
+                        <button id="clear">CLEAR</button>
+                    </div>
+                    <div class="nums">
+                        <div class="nums-row">
+                            <button id="digits" value="1">1</button>
+                            <button id="digits" value="2">2</button>
+                            <button id="digits" value="3">3</button>
+                        </div>
+                        <div class="nums-row">
+                            <button id="digits" value="4">4</button>
+                            <button id="digits" value="5">5</button>
+                            <button id="digits" value="6">6</button>
+                        </div>
+                        <div class="nums-row">
+                            <button id="digits" value="7">7</button>
+                            <button id="digits" value="8">8</button>
+                            <button id="digits" value="9">9</button>
+                        </div>
+                
+                    </div>
+                    <div class="zero-one">
+                        <button id="digits" value="0">0</button>
+                        <button id="digits" class="decimal" value=".">.</button>
+                    </div>
+                </div>
+                <div class="operators">
+                    <button id="add" value="+" class="operator">+</button>
+                    <button id="subtract" value="-" class="operator">—</button>
+                    <button id="multiply" value="*" class="operator">x</button>
+                    <button id="divide" value="/" class="operator">÷</button>
+                    <button id="equals" value="=">=</button>
+                </div>
+            </div>
+        </div>
+        <script src="javascript.js"></script>
+    </body>
+
+</html>
