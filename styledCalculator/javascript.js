@@ -25,16 +25,6 @@ const divide = function(a, b) {
 let result;
 let roundedResult;
 
-//the below code populates the final result on the screen
-
-const display = document.querySelector('.display');
-let displayResult = function() {
-    display.innerHTML = "";
-    const displayValue = document.createElement('h2');
-    displayValue.textContent = `EQUALS ${result}`;
-    display.appendChild(displayValue);
-};
-
 //below code is the main operate function - attached to equals button
 
 const operate = function(operator, a, b) {
@@ -56,6 +46,27 @@ const operate = function(operator, a, b) {
 
 // operate('+', 10, 2); //FUNCTION TEST
 
+
+//the below code populates the final result on the screen
+
+const display = document.querySelector('.display');
+let displayResult = function() {
+    display.innerHTML = "";
+    const displayValue = document.createElement('h2');
+    displayValue.textContent = `EQUALS ${result}`;
+    display.appendChild(displayValue);
+};
+
+//the below code populates a 'running display' that shows the value of the button most recently clicked
+
+const runningDisplay = document.querySelector('.running-display');
+let displayCurrentValue = function() {
+runningDisplay.innerHTML = "";
+const currentValue = document.createElement('h3');
+currentValue.textContent = `${current}`;
+runningDisplay.appendChild(currentValue);
+};
+
 //the below code attaches the operate function to the equals button
 
 const equalsButton = document.querySelector('#equals')
@@ -64,6 +75,7 @@ equalsButton.addEventListener('click', () => {
     displayResult();
     console.log(result);
 });
+
 
 //the below code adds event listeners to each button & calls the "displayCurrentValue" function on click
 
@@ -77,15 +89,7 @@ buttons.forEach((button) => {
         displayCurrentValue();
 })});
 
-//the below code populates a 'running display' that shows the value of the button most recently clicked
 
-const runningDisplay = document.querySelector('.running-display');
-let displayCurrentValue = function() {
-runningDisplay.innerHTML = "";
-const currentValue = document.createElement('h3');
-currentValue.textContent = `${current}`;
-runningDisplay.appendChild(currentValue);
-};
 
 //the below code makes the Clear button reset the 'current' value & empties the runningDisplay div 
 
@@ -171,8 +175,11 @@ operatorButtons.forEach((operator) => {
 });
 
 
-//write some code that disables the decimal button when there is already a decimal in the current number
-// while current number contains a decimal point, disable decimal button
+// left off feb 5
+// still need to make single functional display
+// don't allow users to input numbers with multiple decimals
+// make backspace button functional
+// add keyboard support
 
 
 
